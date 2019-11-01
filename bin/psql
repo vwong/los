@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+docker-compose run \
+  --rm \
+  -e PGHOST="postgres" \
+  -e PGUSER="postgres" \
+  -e PGPASSWORD="password" \
+  -e PGDATABASE="spiritx" \
+  postgres psql

@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+
+dbhost=postgres
+dbuser=postgres
+dbpass=password
+database=spiritx
+tablename=elevation
+tilesize=20
+
+docker-compose run \
+  --rm \
+  --workdir="/data" \
+  postgres sh -c "raster2pgsql -s 7855 -t ${tilesize}x${tilesize} -l 8 -d -I -C -M -Y *.flt $tablename | PGPASSWORD=$dbpass psql -U $dbuser -d $database -h $dbhost -q"
