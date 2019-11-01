@@ -6,8 +6,6 @@ services:
     volumes:
       - ./data:/data
       - postgres:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
     environment:
       POSTGRES_DB: spiritx
       POSTGRES_PASSWORD: password
